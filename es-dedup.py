@@ -60,7 +60,7 @@ def loop_over_hashes_and_remove_duplicates():
         for hashval, array_of_ids in dict_of_duplicate_docs.items():
             if len(array_of_ids) > 1:
                 duplicated_count += 1
-                output_file.write("********** Duplicate docs hash={0} **********\n".format(hashval))
+                # output_file.write("********** Duplicate docs hash={0} **********\n".format(hashval))
                 # Get the documents that have mapped to the current hashval
                 matching_docs = es.mget(index="{0}".format(index_name), doc_type="doc", _source=list_of_fields_to_return, body={"ids": array_of_ids})
                 matching_docs['docs'].pop(0)
